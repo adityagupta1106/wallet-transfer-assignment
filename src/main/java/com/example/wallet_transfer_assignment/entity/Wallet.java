@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+
 @Entity
 @Table(name = "wallets")
 @Getter
@@ -19,11 +20,12 @@ public class Wallet {
     @Id
     private UUID id;
 
+    @Column(nullable = false, updatable = false)
+    private String ownerName;
+
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal balance;
 
-    @Version
-    private Long version;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
