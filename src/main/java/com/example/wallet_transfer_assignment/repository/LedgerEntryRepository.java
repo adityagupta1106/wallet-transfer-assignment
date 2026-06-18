@@ -4,6 +4,7 @@ package com.example.wallet_transfer_assignment.repository;
 import com.example.wallet_transfer_assignment.entity.LedgerEntry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 import java.util.UUID;
@@ -19,5 +20,5 @@ public interface LedgerEntryRepository
        ORDER BY le.createdAt DESC
        """)
     List<LedgerEntry> findTransactionHistory(
-            UUID walletId);
+            @Param("walletId") UUID walletId);
 }
